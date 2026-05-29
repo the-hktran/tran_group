@@ -607,7 +607,8 @@ hr {
 
 .pub-item {
   display: grid;
-  grid-template-columns: 80px 1fr;
+  /* three columns: number, date, content */
+  grid-template-columns: 60px 120px 1fr;
   gap: 0 1rem;
   padding: 0.9rem 0;
   border-bottom: 1px solid var(--border-light);
@@ -621,9 +622,30 @@ hr {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding-top: 0.15rem;
+  padding-top: 0;
+  align-self: center;
   white-space: nowrap;
 }
+
+/* Publication numbering (left column) */
+.pub-number {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--maroon);
+  text-align: right;
+  padding-top: 0.05rem;
+  margin-bottom: 0.15rem;
+  align-self: center;
+}
+
+/* ensure date stacks under number in the left column */
+.pub-item .pub-date { display: block; }
+
+/* Ensure number and date occupy the left column and content the right column */
+.pub-item > .pub-number { grid-column: 1; }
+.pub-item > .pub-date   { grid-column: 2; }
+.pub-item > .pub-content{ grid-column: 3; }
 
 .pub-content { font-size: 0.92rem; line-height: 1.55; }
 .pub-content a { font-weight: 500; color: var(--maroon); }
@@ -688,5 +710,7 @@ hr {
   .page-wrapper { padding: 0 1rem; }
   .news-item { grid-template-columns: 1fr; gap: 0.2rem; }
   .pub-item { grid-template-columns: 1fr; }
-  .pub-date { display: inline; margin-right: 0.5rem; }
+  .pub-item > .pub-number,
+  .pub-item > .pub-date { display: inline-block; margin-right: 0.5rem; }
+  .pub-item > .pub-content { display: block; margin-top: 0.25rem; }
 }
