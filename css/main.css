@@ -5,6 +5,7 @@
 
 /* ---------- Google Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Sans+3:wght@300;400;600&family=Source+Code+Pro:wght@400&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
 
 /* ---------- CSS Variables ---------- */
 :root {
@@ -344,6 +345,59 @@ hr {
   font-family: var(--font-mono);
   word-break: break-all;
 }
+
+.member-email a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.member-email i {
+  font-size: 0.8rem;
+  color: var(--maroon-pale);
+  flex-shrink: 0;
+}
+
+.member-links {
+  display: flex;
+  justify-content: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.member-link {
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--maroon);
+  background: var(--white);
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.member-link i {
+  font-size: 0.92rem;
+  line-height: 1;
+}
+
+.member-link:hover {
+  transform: translateY(-1px);
+  background: var(--maroon);
+  border-color: var(--maroon);
+  color: var(--white);
+  box-shadow: 0 4px 12px var(--shadow);
+  text-decoration: none;
+}
+
+.member-link-cv:hover { background: var(--maroon-mid); border-color: var(--maroon-mid); }
+.member-link-github:hover { background: #24292f; border-color: #24292f; }
+.member-link-linkedin:hover { background: #0a66c2; border-color: #0a66c2; }
+.member-link-scholar:hover { background: #6b4f1d; border-color: #6b4f1d; }
 
 /* Former members */
 .former-members-toggle {

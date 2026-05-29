@@ -93,7 +93,11 @@
     <div class="members-grid">
 
       <!-- PI -->
-      <div class="member-card">
+      <div class="member-card"
+           data-cv="docs/cvs/henry.pdf"
+           data-github="https://github.com/the-hktran"
+           data-linkedin="https://www.linkedin.com/in/henryktran/"
+           data-scholar="https://scholar.google.com/citations?user=qfHo0uAAAAAJ&hl=en">
         <img class="member-photo" src="images/profiles/henry.jpg" alt="Henry Tran" />
         <div class="member-name">Henry Tran</div>
         <div class="member-role">Principal Investigator</div>
@@ -103,7 +107,12 @@
           M.Phil. University of Cambridge (2017)<br />
           B.S. The Ohio State University (2016)
         </div>
-        <div class="member-email"><a href="mailto:htran@chemistry.msstate.edu">htran@chemistry.msstate.edu</a></div>
+        <div class="member-email">
+          <a href="mailto:htran@chemistry.msstate.edu">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>htran@chemistry.msstate.edu</span>
+          </a>
+        </div>
       </div>
 
       <!-- Placeholder grad students / postdocs -->
@@ -292,6 +301,63 @@
     this.textContent = list.classList.contains('open')
       ? 'Hide former members'
       : 'Show/hide former members';
+  });
+
+  document.querySelectorAll('.member-card').forEach(function(card) {
+    var nameNode = card.querySelector('.member-name');
+    var memberName = nameNode ? nameNode.textContent.trim() : 'Member';
+    var linkSpecs = [
+      { key: 'cv', className: 'member-link-cv', iconClass: 'fa-solid fa-file-lines', label: 'CV', external: false },
+      { key: 'github', className: 'member-link-github', iconClass: 'fa-brands fa-github', label: 'GitHub', external: true },
+      { key: 'linkedin', className: 'member-link-linkedin', iconClass: 'fa-brands fa-linkedin-in', label: 'LinkedIn', external: true },
+      { key: 'scholar', className: 'member-link-scholar', iconClass: 'fa-solid fa-graduation-cap', label: 'Google Scholar', external: true }
+    ];
+
+    var links = linkSpecs
+      .map(function(spec) {
+        var href = card.dataset[spec.key];
+        if (!href) {
+          return null;
+        }
+
+        return {
+          href: href,
+          className: spec.className,
+          iconClass: spec.iconClass,
+          label: spec.label,
+          external: spec.external
+        };
+      })
+      .filter(Boolean);
+
+    if (!links.length) {
+      return;
+    }
+
+    var linksContainer = document.createElement('div');
+    linksContainer.className = 'member-links';
+    linksContainer.setAttribute('aria-label', memberName + ' links');
+
+    links.forEach(function(link) {
+      var anchor = document.createElement('a');
+      anchor.className = 'member-link ' + link.className;
+      anchor.href = link.href;
+      anchor.title = link.label;
+      anchor.setAttribute('aria-label', memberName + ' ' + link.label);
+
+      if (link.external) {
+        anchor.target = '_blank';
+        anchor.rel = 'noopener';
+      }
+
+      var icon = document.createElement('i');
+      icon.className = link.iconClass;
+      icon.setAttribute('aria-hidden', 'true');
+      anchor.appendChild(icon);
+      linksContainer.appendChild(anchor);
+    });
+
+    card.appendChild(linksContainer);
   });
 </script>
 
