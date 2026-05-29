@@ -9,39 +9,7 @@
   <link rel="icon" type="image/png" href="images/tran_group_icon_maroon_512.png" />
   <link rel="stylesheet" href="css/main.css" />
 </head>
-<body>
-
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="navbar-inner">
-    <a class="navbar-brand" href="index.html">
-      <img class="nav-icon" src="images/tran_group_icon_maroon_512.png" alt="Tran Group icon" />
-      <span>Tran Group</span>
-    </a>
-    <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="navbar-links" id="navLinks">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="index.html#members">Members</a></li>
-      <li><a href="index.html#research">Research</a></li>
-      <li><a href="publications.html">Publications</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ===== HEADER ===== -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-logo-wrap">
-      <img src="images/tran_group_logo_maroon_fuzzy.png" alt="Tran Group logo" />
-    </div>
-    <div class="header-text">
-      <h1>The Tran Group</h1>
-      <p class="subtitle">Theoretical Chemistry at <em>Mississippi State University</em></p>
-    </div>
-  </div>
-</header>
+<body data-page="home">
 
 <!-- ===== MAIN CONTENT ===== -->
 <main class="page-wrapper">
@@ -102,7 +70,7 @@
         <div class="member-name">Henry Tran</div>
         <div class="member-role">Principal Investigator</div>
         <div class="member-bio">
-          Postdoc, Columbia University (2022–2025)<br />
+          Postdoc, Columbia University (2022–2026)<br />
           Ph.D. MIT (2022)<br />
           M.Phil. University of Cambridge (2017)<br />
           B.S. The Ohio State University (2016)
@@ -160,9 +128,8 @@
       <div class="research-card">
         <h4>Quantum Embedding Methods</h4>
         <p>
-          We formulate and implement embedding frameworks—including DMET-inspired and density-matrix 
-          based approaches—to achieve coupled-cluster accuracy for extended and periodic systems. 
-          A central application is spin-phonon decoherence in molecular spin qubits, where accurate 
+          We formulate and implement embedding frameworks to achieve coupled-cluster accuracy for extended and periodic systems.
+          A central application is spin-phonon decoherence in molecular spin qubits, where accurate
           treatment of correlated electrons coupled to nuclear motion is essential.
         </p>
       </div>
@@ -202,21 +169,21 @@
       <!-- <div class="pi-photo-placeholder">HT</div> -->
       <div class="pi-bio-text">
         <p>
-          Henry Tran is an Assistant Professor in the Department of Chemistry at Mississippi State 
-          University. He received his B.S. in Mathematics and Chemistry from The Ohio State University 
-          in 2016 (working with Terry Miller) and his M. Phil. in Scientific Computing from the University of Cambridge in 2017 (working with Alexander Thom). 
-          He completed his Ph.D. in Chemistry at MIT in 2022 under the supervision of Troy Van Voorhis, working on 
-          quantum embedding and excited-state methods for molecular materials.
+          Henry Tran is an Assistant Professor in the Department of Chemistry at Mississippi State University.
+          He earned a B.S. in Mathematics and Chemistry from The Ohio State University in 2016, working with Terry Miller,
+          and an M.Phil. in Scientific Computing from the University of Cambridge in 2017 under Alexander Thom.
+          In 2022, he completed his Ph.D. in Chemistry at MIT under the supervision of Troy Van Voorhis, where his
+          research focused on quantum embedding and excited-state methods for molecular materials.
         </p>
         <p>
-          From 2022 to 2026, Henry was a postdoctoral researcher with Timothy Berkelbach at Columbia 
-          University, where he developed machine learning potentials for 
-          correlated systems and methods for nuclear quantum effects. He joined Mississippi State 
-          University in 2026. 
+          Prior to joining the faculty at Mississippi State in 2026, Henry was a postdoctoral researcher with
+          Timothy Berkelbach at Columbia University. During this time, he developed machine learning potentials
+          for correlated systems and advanced methods for nuclear quantum effects. Read more about Henry
+          on his <a href="docs/cvs/henry.pdf" target="_blank" rel="noopener">CV</a>.
         </p>
         <p>
-          Outside of research, Henry is a competitive ballroom dancer and enjoys spending time in the gym, 
-          watching Broadway musicals, and perfecting his barbecue technique.
+          Outside the lab, Henry is a competitive ballroom dancer who enjoys strength training, attending Broadway
+          musicals, and perfecting his barbecue technique.
         </p>
 
         <h3 style="font-family:var(--font-serif);font-size:1.05rem;color:var(--maroon);margin:1.25rem 0 0.5rem;">Selected Honors &amp; Awards</h3>
@@ -265,35 +232,18 @@
   <section id="join">
     <h2 class="section-heading">Join Us!</h2>
     <div class="join-section">
-      We welcome students and postdocs of all backgrounds. The Tran Group is building a diverse, 
-      collaborative environment focused on developing the next generation of quantum chemistry methods. 
-      If you are interested in PhD positions or postdoctoral openings at Mississippi State, 
-      please reach out to Henry directly at 
-      <a href="mailto:htran@chemistry.msstate.edu">htran@chemistry.msstate.edu</a>.
+      We welcome students and postdocs of all backgrounds. The Tran Group is building a diverse,
+      collaborative environment focused on developing the next generation of quantum chemistry methods.
+      If you are interested in PhD positions, postdoctoral openings, or undergraduate research opportunities at Mississippi State,
+      please reach out to Henry directly at <a href="mailto:htran@chemistry.msstate.edu">htran@chemistry.msstate.edu</a>.
     </div>
   </section>
 
 </main>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span class="footer-copy">&copy; Tran Group &mdash; Mississippi State University</span>
-    <ul class="footer-links">
-      <li><a href="https://www.chemistry.msstate.edu/" target="_blank" rel="noopener">MSU Chemistry</a></li>
-      <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
-      <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a></li>
-    </ul>
-  </div>
-</footer>
+<script src="js/site-layout.js"></script>
 
 <script>
-  // Mobile nav toggle
-  document.getElementById('navToggle').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
   // Former members toggle
   document.getElementById('formerToggle').addEventListener('click', function() {
     var list = document.getElementById('formerList');

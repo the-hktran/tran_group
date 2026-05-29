@@ -9,39 +9,7 @@
   <link rel="icon" type="image/png" href="images/tran_group_icon_maroon_512.png" />
   <link rel="stylesheet" href="css/main.css" />
 </head>
-<body>
-
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar">
-  <div class="navbar-inner">
-    <a class="navbar-brand" href="index.html">
-      <img class="nav-icon" src="images/tran_group_icon_maroon_512.png" alt="Tran Group icon" />
-      <span>Tran Group</span>
-    </a>
-    <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="navbar-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#members">Members</a></li>
-      <li><a href="index.html#research">Research</a></li>
-      <li><a href="publications.html">Publications</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- ===== HEADER ===== -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="header-logo-wrap">
-      <img src="images/tran_group_logo_maroon_fuzzy.png" alt="Tran Group logo" />
-    </div>
-    <div class="header-text">
-      <h1>The Tran Group</h1>
-      <p class="subtitle">Theoretical Chemistry at <em>Mississippi State University</em></p>
-    </div>
-  </div>
-</header>
+<body data-page="news">
 
 <!-- ===== MAIN CONTENT ===== -->
 <main class="page-wrapper">
@@ -61,24 +29,7 @@
 
 </main>
 
-<!-- ===== FOOTER ===== -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <span class="footer-copy">&copy; Tran Group &mdash; Mississippi State University</span>
-    <ul class="footer-links">
-      <li><a href="https://www.chemistry.msstate.edu/" target="_blank" rel="noopener">MSU Chemistry</a></li>
-      <li><a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></li>
-      <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a></li>
-    </ul>
-  </div>
-</footer>
-
-<script>
-  document.getElementById('navToggle').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-</script>
+<script src="js/site-layout.js"></script>
 
 </body>
 </html>
