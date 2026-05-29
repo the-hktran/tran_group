@@ -455,7 +455,7 @@ hr {
 /* ---------- PI Bio Section ---------- */
 .pi-bio {
   display: grid;
-  grid-template-columns: 160px 1fr;
+  /* grid-template-columns: 160px 1fr;*/
   gap: 2rem;
   align-items: start;
   margin: 1.5rem 0;
