@@ -25,11 +25,12 @@
     }).join('\n');
   }
 
+  // 1. Build the header with an empty placeholder for the logo
   var headerHtml = [
     '<nav class="navbar">',
     '  <div class="navbar-inner">',
     '    <a class="navbar-brand" href="index.html">',
-    '      <img class="nav-icon" src="images/tran_group_icon_maroon_512.png" alt="Tran Group icon" />',
+    '      <div id="dynamic-nav-icon"></div>',
     '      <span>Tran Group</span>',
     '    </a>',
     '    <button class="navbar-toggle" id="navToggle" aria-label="Toggle navigation">',
@@ -44,8 +45,8 @@
     '</nav>',
     '<header class="site-header">',
     '  <div class="header-inner">',
-    '    <div class="header-logo-wrap">',
-    '      <img src="images/tran_group_logo_maroon_fuzzy.png" alt="Tran Group logo" />',
+    '    <div class="header-logo-wrap" id="dynamic-logo-container">',
+    '      ',
     '    </div>',
     '    <div class="header-text">',
     '      <h1>The Tran Group</h1>',
@@ -66,15 +67,39 @@
     '</footer>'
   ].join('\n');
 
+  // Insert Header and Footer into the DOM
   document.body.insertAdjacentHTML('afterbegin', headerHtml);
   document.body.insertAdjacentHTML('beforeend', footerHtml);
 
-  var navToggle = document.getElementById('navToggle');
-  var navLinks = document.getElementById('navLinks');
-
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
+  // 2. Fetch the logo and icon from css/logo.html
+  fetch('css/logo.html')
+    .then(function(response) {
+      if (!response.ok) throw new Error('Network response was not ok');
+      return response.text();
+    })
+    .then(function(html) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(html, 'text/html');
+      
+      // Inject Main Logo Card
+      var maroonLogo = doc.querySelector('.logo-card.maroon');
+      var logoContainer = document.getElementById('dynamic-logo-container');
+      if (maroonLogo && logoContainer) {
+        logoContainer.appendChild(maroonLogo);
+      }
+      
+      // Inject Navbar Icon
+      // Finds the first Maroon icon box, clones it, and scales it to 36px for the navbar
+      var maroonIcon = doc.querySelector('.icon-box.maroon');
+      var iconContainer = document.getElementById('dynamic-nav-icon');
+      if (maroonIcon && iconContainer) {
+        var clonedIcon = maroonIcon.cloneNode(true);
+        clonedIcon.className = 'icon-box maroon icon-36'; // Apply the specific 36px size
+        iconContainer.appendChild(clonedIcon);
+      }
+    })
+    .catch(function(error) {
+      console.error('Error fetching the brand assets:', error);
     });
-  }
+
 })();
